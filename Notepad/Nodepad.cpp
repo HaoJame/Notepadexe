@@ -4,7 +4,7 @@
 #include <tchar.h>
 #include <tlhelp32.h>
 #include <string.h>
-
+typedef LRESULT(CALLBACK* Win)(HWND,UINT,WPARAM,LPARAM);//(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 BOOL IsProcessRunning(DWORD pid)
 {
     HANDLE process = OpenProcess(SYNCHRONIZE, FALSE, pid);
@@ -34,24 +34,35 @@ BOOL WINAPI Inject(DWORD id, char* ppathDLL)
     HANDLE  targetProcess;
     std::wcout << "Process id: " << id << "\n";
     targetProcess = OpenProcess(PROCESS_ALL_ACCESS, 0, id);
+    BOOL success = FALSE;
     if (targetProcess)
     {
-        HMODULE dll = LoadLibrary(TEXT("NotepadDLL.dll"));
+        HINSTANCE  dll = LoadLibrary(TEXT("NotepadDLL.dll"));
         if (dll != NULL) {
             std::wcout << "The DLL found\n";
         }
-        HOOKPROC addr = (HOOKPROC)GetProcAddress(dll, "dwOldWndProc");
+        HOOKPROC addr = (HOOKPROC)GetProcAddress(dll, "");
+        //Win addr = (Win)GetProcAddress(dll, "LoadLibraryA");
         if (addr != NULL) {
             std::wcout << "The function found\n";
         }
-        HHOOK handle = SetWindowsHookEx(WH_KEYBOARD, addr, dll, 0);
+        //HMODULE appInstance = GetModuleHandle(L"NotepadDLL.dll");
+        //DWORD threadid = GetWindowThreadProcessId((HWND)targetProcess, NULL);
+        HHOOK handle = SetWindowsHookEx(WH_KEYBOARD, (HOOKPROC)addr, dll, 0);
         if (handle != NULL) {
             std::wcout << "The function found\n";
         }
-        std::wcout <<"Program successfully hooked.\nPress enter to unhook the function and stop the program\n";
+        std::wcout << "Program successfully hooked.\nPress enter to unhook the function and stop the program\n";
+        std::wcout << "hooked to threadid-->%lu:" << handle << "\n";
+        getchar();
         UnhookWindowsHookEx(handle);
+        return success = TRUE;
     }
-    return FALSE;
+    else
+    {
+        success = FALSE;
+    }
+    return success;
 }
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -63,21 +74,10 @@ int _tmain(int argc, _TCHAR* argv[])
     char pathDLL[] = "..\\x64\\Debug\\NotepadDLL.dll";
     char* ppathDLL = pathDLL;
     std::cout << "waiting ..." << "\n";
-    if (Inject(pid, ppathDLL)==TRUE)
+    if (Inject(pid, ppathDLL) == TRUE)
     {
         std::cout << "Injection successful" << std::endl;
     }
-    /*
-    * Load File DLL test
-    */
-    //HMODULE hLibrary = LoadLibrary(TEXT("Hook_Calc.dll"));
-    //HOOKPROC hprc = (HOOKPROC)GetProcAddress(hLibrary, "SpawnCalc");
-    //if (hLibrary == NULL)
-    //{
-    //    printf("[-] LoadLibraryA has failed: %d\n", GetLastError());
-    //    return 1;
-    //}
-    //printf("[+] Handle of the loaded DLL: 0x%p\n", hLibrary);
     return 0;
 }
 

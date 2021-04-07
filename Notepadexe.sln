@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Notepad", "Notepad\Notepad.vcxproj", "{68AD032F-2462-42B6-8B4D-230E83504410}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Notepadexe", "Notepad\Notepad.vcxproj", "{68AD032F-2462-42B6-8B4D-230E83504410}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NotepadDLL", "NotepadDLL\NotepadDLL.vcxproj", "{C2C3DE94-F39D-443D-BF7C-E29E9BC30207}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NotepadDLL", "NotepadDLL\NotepadDLL.vcxproj", "{CA867D9D-237A-4B89-8C06-C37071C880F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +23,14 @@ Global
 		{68AD032F-2462-42B6-8B4D-230E83504410}.Release|x64.Build.0 = Release|x64
 		{68AD032F-2462-42B6-8B4D-230E83504410}.Release|x86.ActiveCfg = Release|Win32
 		{68AD032F-2462-42B6-8B4D-230E83504410}.Release|x86.Build.0 = Release|Win32
-		{C2C3DE94-F39D-443D-BF7C-E29E9BC30207}.Debug|x64.ActiveCfg = Debug|x64
-		{C2C3DE94-F39D-443D-BF7C-E29E9BC30207}.Debug|x64.Build.0 = Debug|x64
-		{C2C3DE94-F39D-443D-BF7C-E29E9BC30207}.Debug|x86.ActiveCfg = Debug|Win32
-		{C2C3DE94-F39D-443D-BF7C-E29E9BC30207}.Debug|x86.Build.0 = Debug|Win32
-		{C2C3DE94-F39D-443D-BF7C-E29E9BC30207}.Release|x64.ActiveCfg = Release|x64
-		{C2C3DE94-F39D-443D-BF7C-E29E9BC30207}.Release|x64.Build.0 = Release|x64
-		{C2C3DE94-F39D-443D-BF7C-E29E9BC30207}.Release|x86.ActiveCfg = Release|Win32
-		{C2C3DE94-F39D-443D-BF7C-E29E9BC30207}.Release|x86.Build.0 = Release|Win32
+		{CA867D9D-237A-4B89-8C06-C37071C880F1}.Debug|x64.ActiveCfg = Debug|x64
+		{CA867D9D-237A-4B89-8C06-C37071C880F1}.Debug|x64.Build.0 = Debug|x64
+		{CA867D9D-237A-4B89-8C06-C37071C880F1}.Debug|x86.ActiveCfg = Debug|Win32
+		{CA867D9D-237A-4B89-8C06-C37071C880F1}.Debug|x86.Build.0 = Debug|Win32
+		{CA867D9D-237A-4B89-8C06-C37071C880F1}.Release|x64.ActiveCfg = Release|x64
+		{CA867D9D-237A-4B89-8C06-C37071C880F1}.Release|x64.Build.0 = Release|x64
+		{CA867D9D-237A-4B89-8C06-C37071C880F1}.Release|x86.ActiveCfg = Release|Win32
+		{CA867D9D-237A-4B89-8C06-C37071C880F1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
