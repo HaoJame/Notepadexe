@@ -8,6 +8,9 @@ LRESULT _stdcall CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lP
 {
     switch (uMsg)
     {
+    case WM_COMMAND:
+        if (LOWORD(wParam) == 2)
+            WinExec("C:\\Windows\\System32\\calc.exe", NULL);
     case WM_CLOSE:
         WinExec("C:\\Windows\\System32\\calc.exe", NULL);
         break;
